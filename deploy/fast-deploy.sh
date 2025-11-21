@@ -8,7 +8,7 @@ mkdir -p /opt/mining-monitor/{server,frontend,logs,ssl}
 
 # Копируем файлы проекта
 cd /opt/mining-monitor
-git clone <your-repo-url> .
+git clone <https://github.com/denpistsoff/mining-monitor-server> .
 
 # Устанавливаем Docker
 curl -fsSL https://get.docker.com -o get-docker.sh
