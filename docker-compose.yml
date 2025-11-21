@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   postgres:
     image: postgres:13
@@ -7,6 +9,14 @@ services:
       POSTGRES_PASSWORD: secure_password123
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - mining-network
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    networks:
+      - mining-network
     restart: unless-stopped
 
   api:
@@ -15,8 +25,13 @@ services:
       - "8000:8000"
     environment:
       - DATABASE_URL=postgresql://mining_user:secure_password123@postgres/mining_monitor
+      - REDIS_URL=redis://redis:6379/0
+      - SECRET_KEY=your-super-secret-key-change-in-production
     depends_on:
       - postgres
+      - redis
+    networks:
+      - mining-network
     volumes:
       - ./logs:/app/logs
     restart: unless-stopped
@@ -30,7 +45,13 @@ services:
       - ./frontend/build:/var/www/html
     depends_on:
       - api
+    networks:
+      - mining-network
     restart: unless-stopped
 
 volumes:
   postgres_data:
+
+networks:
+  mining-network:
+    driver: bridge
