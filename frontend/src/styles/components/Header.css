@@ -1,0 +1,328 @@
+.header {
+    background: var(--bg-primary);
+    border-bottom: 1px solid #252525;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    gap: 20px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+}
+
+.back-button {
+    background: var(--bg-secondary);
+    border: 1px solid #333;
+    border-radius: var(--radius-md);
+    padding: 10px 16px;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.back-button:hover {
+    background: var(--bg-tertiary);
+    transform: translateY(-2px);
+}
+
+.header-title-section {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.header-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    line-height: 1;
+}
+
+.farm-display {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.alerts-button {
+    position: relative;
+    background: var(--bg-tertiary);
+    border: 1px solid #333;
+    border-radius: var(--radius-md);
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-size: 1.2rem;
+    min-width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alerts-button:hover {
+    background: var(--accent-primary);
+    transform: translateY(-2px);
+    border-color: var(--accent-primary);
+}
+
+.alerts-button.has-alerts {
+    border-color: var(--accent-warning);
+    background: var(--accent-warning);
+    color: #000;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.alerts-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--accent-danger);
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: 2px solid var(--bg-primary);
+}
+
+.action-btn.small {
+    background: var(--bg-tertiary);
+    border: 1px solid #333;
+    border-radius: var(--radius-md);
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-size: 1.2rem;
+    min-width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+}
+
+.action-btn.small:hover {
+    background: var(--accent-primary);
+    transform: translateY(-2px);
+    border-color: var(--accent-primary);
+    color: #000;
+}
+
+.logout-button {
+    background: transparent;
+    border: 1px solid var(--accent-danger);
+    border-radius: var(--radius-md);
+    padding: 10px 20px;
+    color: var(--accent-danger);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.logout-button:hover {
+    background: var(--accent-danger);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.header-nav {
+    display: flex;
+    padding: 0 20px;
+    border-top: 1px solid #252525;
+}
+
+.nav-tab {
+    flex: 1;
+    max-width: 200px;
+    padding: 16px 20px;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-tab:hover {
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+}
+
+.nav-tab.active {
+    color: var(--accent-primary);
+}
+
+.nav-tab.active .tab-indicator {
+    width: 100%;
+    background: var(--gradient-primary);
+}
+
+.tab-indicator {
+    height: 3px;
+    width: 0;
+    border-radius: 2px;
+    transition: var(--transition-normal);
+}
+
+.tab-text {
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .header-top {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .header-left {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .header-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .header-nav {
+        padding: 0 15px;
+    }
+
+    .nav-tab {
+        padding: 14px 16px;
+        font-size: 0.85rem;
+    }
+
+    .back-button {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    .logout-button {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-title {
+        font-size: 1.3rem;
+    }
+
+    .farm-display {
+        font-size: 0.8rem;
+    }
+
+    .nav-tab {
+        padding: 12px 8px;
+        font-size: 0.8rem;
+    }
+    /* Дополнения к Header.css */
+    .alerts-button {
+        position: relative;
+        background: var(--bg-tertiary);
+        border: 1px solid #333;
+        border-radius: var(--radius-md);
+        padding: 8px 12px;
+        cursor: pointer;
+        transition: var(--transition-fast);
+        font-size: 1.2rem;
+    }
+
+    .alerts-button:hover {
+        background: var(--accent-primary);
+        transform: translateY(-2px);
+    }
+
+    .alerts-button.has-alerts {
+        border-color: var(--accent-warning);
+        background: var(--accent-warning);
+        color: #000;
+    }
+
+    .alerts-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: var(--accent-danger);
+        color: white;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        font-size: 0.7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .action-btn.small {
+        padding: 8px 12px;
+        font-size: 1.2rem;
+        min-width: auto;
+    }
+}

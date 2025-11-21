@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/mining-monitor-web/static/css/main.baffff20.css",
+    "main.js": "/mining-monitor-web/static/js/main.047be9b7.js",
+    "index.html": "/mining-monitor-web/index.html",
+    "main.baffff20.css.map": "/mining-monitor-web/static/css/main.baffff20.css.map",
+    "main.047be9b7.js.map": "/mining-monitor-web/static/js/main.047be9b7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.baffff20.css",
+    "static/js/main.047be9b7.js"
+  ]
+}
